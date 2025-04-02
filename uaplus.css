@@ -1,6 +1,6 @@
 /**
- * uaplus.css version 0.0.1
- */
+* uaplus.css version 0.0.1
+*/
 
 /**
  * Different box model
@@ -13,307 +13,295 @@
  * 
  * See https://en.wikipedia.org/wiki/CSS_box_model
  */
- *,
- *::after,
- *::before {
-   box-sizing: border-box;
- }
- 
- 
- /**
-  * Improve focus styles
-  *
-  * Add spacing between content and its focus outline.
-  */
- :focus-visible {
-   outline-offset: 3px;
- }
- 
- /**
-  * Disable text size adjustment
-  * 
-  * To improve readability on non-mobile optimized websites, browsers
-  * like mobile Safari increase the default font size when you switch
-  * a website from portrait to landscape. We don't want that for our 
-  * optimized sites.
-  *
-  * See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
-  */
- :where(html) {
-   -webkit-text-size-adjust: none;
-   text-size-adjust: none;
- }
- 
- 
- /**
-  * Increase line height
-  *
-  * Long paragraphs are easier to read if the line height is higher.
-  */
- 
- :where(html) {
-   line-height: 1.5;
- }
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
 
- 
- /**
-  * Add scrollbar gutter
-  *
-  * Prevent the page from “jumping” when switching from a long to a short page.
-  *
-  */
+/**
+ * Improve focus styles
+ *
+ * Add spacing between content and its focus outline.
+ */
+:focus-visible {
+	outline-offset: 3px;
+}
 
-  :where(html) {
-    scrollbar-gutter: stable;
-  }
- 
- /**
-  * Remove UA styles for h1s nested in sectioning content
-  *
-  * Nesting h1s in section, articles, etc., shouldn't influence the 
-  * styling of the heading since nesting doesn't influence 
-  * semantics either.
-  * 
-  * See https://github.com/whatwg/html/issues/7867#issuecomment-2632395167
-  * See https://github.com/whatwg/html/pull/11102
-  * See https://html.spec.whatwg.org/#sections-and-headings
-  */
- 
- :where(h1) {
-   font-size: 2em;
-   margin-block: 0.67em;
- }
- 
- /**
-  * Prevent overflow in pre elements
-  * 
-  * Horizontal scrolling shouldn't occur when pre-formatted content 
-  * overflows its parent container.
-  */
-  :where(pre) {
-   overflow: auto;
- }
- 
- /**
-  * Improve abbreviations with titles
-  * 
-  * The abbr element with the title isn't helpful regarding 
-  * accessibility because support is inconsistent, and it's only 
-  * accessible to some users. Still, it's commonly used. 
-  * This rule shows a dotted underline on abbreviations in all 
-  * browsers (there's a bug in Safari) and changes the cursor.
-  * 
-  * See https://adrianroselli.com/2024/01/using-abbr-element-with-title-attribute.html
-  */
- :where(abbr[title]) {
-   cursor: help;
-   text-decoration-line: underline;
-   text-decoration-style: dotted;
- }
- 
- 
- /**
-  * Optimize mark element in Forced Colors Mode
-  *
-  * The colors of the mark element don't change in Forced Colors Mode,
-  * which can be problematic. Use system colors instead.
-  * 
-  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
-  */
-  @media (forced-colors: active) {
-   mark {
-     color: HighlightText;
-     background-color: Highlight;
-   }
- }
- 
- /**
-  * Announce del, ins, and s to screen readers
-  * 
-  * With the exception of NVDA (2024.4.2), which announces "deletion",
-  * none of the common screen readers announces the <s> element.
-  * Voice Over on macOS and iOS and Narrator don't announce 
-  * <ins> and <del>. Usually, screen readers not announcing text-level
-  * semantics is something we just accept, but devs using elements 
-  * like <s> without knowing that they may not convey semantics is a 
-  * common issue. We announce the start and end of stricken, inserted,
-  * and deleted content with pseudo-elements. For languages other 
-  * than English, you should provide translations, e.g. :lang(de) 
-  * :where(s::before) { content: "Durchgestrichener Text Beginn "; }
-  * 
-  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html
-  */
- 
- :where(del::before, del::after, ins::before, ins::after, s::before, s::after) {
-   clip-path: inset(100%);
-   clip: rect(1px, 1px, 1px, 1px);
-   height: 1px;
-   width: 1px;
-   overflow: hidden;
-   position: absolute;
-   white-space: nowrap;
- }
- 
- :where(s::before) {
-   content: "stricken text start ";
- }
- 
- :where(s::after) {
-   content: " stricken text end";
- }
- 
- :where(del::before) {
-   content: "deletion start ";
- }
- 
- :where(del::after) {
-   content: " deletion end";
- }
- 
- :where(ins::before) {
-   content: "insertion start ";
- }
- 
- :where(ins::after) {
-   content: " insertion end";
- }
- 
- 
- /**
-  * Avoid overflow caused by embedded content
-  * 
-  * Ensure that embedded content (audio, video, images, etc.) 
-  * doesn't overflow its container.
-  */
- :where(audio, iframe, img, svg, video) {
-   max-block-size: 100%;
-   max-inline-size: 100%;
- }
- 
- 
- /**
-  * Prevent fieldsets from causing overflow
-  *
-  * Reset the default `min-inline-size: min-content` to prevent
-  * children from stretching fieldsets
-  *
-  * See https://github.com/twbs/bootstrap/issues/12359
-  * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
-  */
-  :where(fieldset) {
-   min-inline-size: 0;
- }
- 
- /**
-  * Turn labels into block elements
-  * 
-  * Labels for inputs, selects, and textarea should be block 
-  * elements.
-  */
-  :where(label):has(+ :where(textarea, input, select)) {
-   display: block;
- }
- 
- /**
-  * Increase the block-size of textareas
-  *
-  * The default height of textareas is small. We increase it a bit.
-  */
- :where(textarea:not([rows])) {
-   min-block-size: 6em;
- }
- 
- /**
-  * Inherit font styling in form elements
-  * 
-  * buttons, inputs, selects, and textarea should have the same font
-  * family and size as the rest of the page.
-  */
- :where(button, input, select, textarea) {
-   font-family: inherit;
-   font-size: inherit;
- }
- 
- /**
-  * Normalize search input styles
-  *  
-  * Remove the rounded corners of search inputs on macOS and IOS 
-  * and align the outline-offset with other input types
-  */
- :where([type="search"]) {
-   -webkit-appearance: textfield;
-   outline-offset: -2px;
- }
- 
- /**
-  * Maintain direction in some input types
-  * 
-  * Some input types should remain left-aligned in right-to-left
-  * languages,but only if the value isn't empty because the 
-  * placeholder should be right-aligned.
-  *
-  * See https://rtlstyling.com/posts/rtl-styling#form-inputs
-  */
- :where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
-     :placeholder-shown
-   ) {
-   direction: ltr;
- }
- 
- /**
-  * Improve table styling
-  *  
-  * With the default styling, tables are hard to scan. These rules 
-  * add padding and collapsed borders.
-  */
- 
- :where(table) {
-   border-collapse: collapse;
-   border: 1px solid;
- }
- 
- :where(th, td) {
-   border: 1px solid;
-   padding: 0.25em 0.5em;
- }
- 
- 
- /**
-  * Fading dialogs
-  *  
-  * Add fade in and fade out transitions for the dialog element
-  * and backdrops
-  */
- 
- dialog::backdrop {
-   background: oklch(0% 0 0 / 0.3);
- }
- 
- dialog, 
- dialog::backdrop {
-   opacity: 0;
-   transition: opacity 300ms ease-out, display 300ms allow-discrete, overlay 300ms allow-discrete;
- }
- 
- dialog[open],
- dialog[open]::backdrop {
-   opacity: 1;
- }
- 
- @starting-style {
-   dialog[open],
-   dialog[open]::backdrop {
-     opacity: 0;
-   }
- }
- 
- /**
-  * Increase specificity of [hidden]
-  *  
-  * Make it harder to accidentally unhide elements with the 
-  * [hidden] attribute while still maintaining the until-found 
-  * functionality.
-  */
-  [hidden]:not([hidden="until-found"]) {
-   display: none !important;
- }
+/**
+ * Disable text size adjustment
+ * 
+ * To improve readability on non-mobile optimized websites, browsers
+ * like mobile Safari increase the default font size when you switch
+ * a website from portrait to landscape. We don't want that for our 
+ * optimized sites.
+ *
+ * See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+ */
+:where(html) {
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/**
+ * Increase line height
+ *
+ * Long paragraphs are easier to read if the line height is higher.
+ */
+:where(html) {
+	line-height: 1.5;
+}
+
+/**
+ * Add scrollbar gutter
+ *
+ * Prevent the page from “jumping” when switching from a long to a short page.
+ *
+ */
+:where(html) {
+	scrollbar-gutter: stable;
+}
+
+/**
+ * Remove UA styles for h1s nested in sectioning content
+ *
+ * Nesting h1s in section, articles, etc., shouldn't influence the 
+ * styling of the heading since nesting doesn't influence 
+ * semantics either.
+ * 
+ * See https://github.com/whatwg/html/issues/7867#issuecomment-2632395167
+ * See https://github.com/whatwg/html/pull/11102
+ * See https://html.spec.whatwg.org/#sections-and-headings
+ */
+:where(h1) {
+	font-size: 2em;
+	margin-block: 0.67em;
+}
+
+/**
+ * Prevent overflow in pre elements
+ * 
+ * Horizontal scrolling shouldn't occur when pre-formatted content 
+ * overflows its parent container.
+ */
+:where(pre) {
+	overflow: auto;
+}
+
+/**
+ * Improve abbreviations with titles
+ * 
+ * The abbr element with the title isn't helpful regarding 
+ * accessibility because support is inconsistent, and it's only 
+ * accessible to some users. Still, it's commonly used. 
+ * This rule shows a dotted underline on abbreviations in all 
+ * browsers (there's a bug in Safari) and changes the cursor.
+ * 
+ * See https://adrianroselli.com/2024/01/using-abbr-element-with-title-attribute.html
+ */
+:where(abbr[title]) {
+	cursor: help;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+}
+
+/**
+ * Optimize mark element in Forced Colors Mode
+ *
+ * The colors of the mark element don't change in Forced Colors Mode,
+ * which can be problematic. Use system colors instead.
+ * 
+ * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
+ */
+@media (forced-colors: active) {
+	mark {
+		color: HighlightText;
+		background-color: Highlight;
+	}
+}
+
+/**
+ * Announce del, ins, and s to screen readers
+ * 
+ * With the exception of NVDA (2024.4.2), which announces "deletion",
+ * none of the common screen readers announces the <s> element.
+ * Voice Over on macOS and iOS and Narrator don't announce 
+ * <ins> and <del>. Usually, screen readers not announcing text-level
+ * semantics is something we just accept, but devs using elements 
+ * like <s> without knowing that they may not convey semantics is a 
+ * common issue. We announce the start and end of stricken, inserted,
+ * and deleted content with pseudo-elements. For languages other 
+ * than English, you should provide translations, e.g. :lang(de) 
+ * :where(s::before) { content: "Durchgestrichener Text Beginn "; }
+ * 
+ * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
+:where(del::before, del::after, ins::before, ins::after, s::before, s::after) {
+	clip-path: inset(100%);
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}
+
+:where(s::before) {
+	content: "stricken text start ";
+}
+
+:where(s::after) {
+	content: " stricken text end";
+}
+
+:where(del::before) {
+	content: "deletion start ";
+}
+
+:where(del::after) {
+	content: " deletion end";
+}
+
+:where(ins::before) {
+	content: "insertion start ";
+}
+
+:where(ins::after) {
+	content: " insertion end";
+}
+
+/**
+ * Avoid overflow caused by embedded content
+ * 
+ * Ensure that embedded content (audio, video, images, etc.) 
+ * doesn't overflow its container.
+ */
+:where(audio, iframe, img, svg, video) {
+	max-block-size: 100%;
+	max-inline-size: 100%;
+}
+
+/**
+ * Prevent fieldsets from causing overflow
+ *
+ * Reset the default `min-inline-size: min-content` to prevent
+ * children from stretching fieldsets
+ *
+ * See https://github.com/twbs/bootstrap/issues/12359
+ * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+ */
+:where(fieldset) {
+	min-inline-size: 0;
+}
+
+/**
+ * Turn labels into block elements
+ * 
+ * Labels for inputs, selects, and textarea should be block 
+ * elements.
+ */
+:where(label):has(+ :where(textarea, input, select)) {
+	display: block;
+}
+
+/**
+ * Increase the block-size of textareas
+ *
+ * The default height of textareas is small. We increase it a bit.
+ */
+:where(textarea:not([rows])) {
+	min-block-size: 6em;
+}
+
+/**
+ * Inherit font styling in form elements
+ * 
+ * buttons, inputs, selects, and textarea should have the same font
+ * family and size as the rest of the page.
+ */
+:where(button, input, select, textarea) {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+/**
+ * Normalize search input styles
+ *  
+ * Remove the rounded corners of search inputs on macOS and IOS 
+ * and align the outline-offset with other input types
+ */
+:where([type="search"]) {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+/**
+ * Maintain direction in some input types
+ * 
+ * Some input types should remain left-aligned in right-to-left
+ * languages,but only if the value isn't empty because the 
+ * placeholder should be right-aligned.
+ *
+ * See https://rtlstyling.com/posts/rtl-styling#form-inputs
+ */
+:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
+		:placeholder-shown
+	) {
+	direction: ltr;
+}
+
+/**
+ * Improve table styling
+ *  
+ * With the default styling, tables are hard to scan. These rules 
+ * add padding and collapsed borders.
+ */
+:where(table) {
+	border-collapse: collapse;
+	border: 1px solid;
+}
+
+:where(th, td) {
+	border: 1px solid;
+	padding: 0.25em 0.5em;
+}
+
+/**
+ * Fading dialogs
+ *  
+ * Add fade in and fade out transitions for the dialog element
+ * and backdrops
+ */
+:where(dialog)::backdrop {
+	background: oklch(0% 0 0 / 0.3);
+}
+
+:where(dialog),
+:where(dialog)::backdrop {
+	opacity: 0;
+	transition: opacity 300ms ease-out, display 300ms allow-discrete,
+		overlay 300ms allow-discrete;
+}
+
+:where(dialog[open]),
+:where(dialog[open])::backdrop {
+	opacity: 1;
+}
+
+@starting-style {
+	:where(dialog[open]),
+	:where(dialog[open])::backdrop {
+		opacity: 0;
+	}
+}
+
+/**
+ * Increase specificity of [hidden]
+ *  
+ * Make it harder to accidentally unhide elements with the 
+ * [hidden] attribute while still maintaining the until-found 
+ * functionality.
+ */
+[hidden]:not([hidden="until-found"]) {
+	display: none !important;
+}
