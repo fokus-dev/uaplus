@@ -79,16 +79,6 @@
 }
 
 /**
- * Prevent overflow in pre elements
- * 
- * Horizontal scrolling shouldn't occur when pre-formatted content 
- * overflows its parent container.
- */
-:where(pre) {
-	overflow: auto;
-}
-
-/**
  * Improve abbreviations with titles
  * 
  * The abbr element with the title isn't helpful regarding 
