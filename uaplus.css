@@ -54,6 +54,18 @@
  :where(html) {
    line-height: 1.5;
  }
+
+ 
+ /**
+  * Add scrollbar gutter
+  *
+  * Prevent the page from “jumping” when switching from a long to a short page.
+  *
+  */
+
+  :where(html) {
+    scrollbar-gutter: stable;
+  }
  
  /**
   * Remove UA styles for h1s nested in sectioning content
