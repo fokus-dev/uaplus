@@ -218,11 +218,18 @@
  * Normalize search input styles
  *  
  * Remove the rounded corners of search inputs on macOS and IOS 
- * and align the outline-offset with other input types
+ * and normalize the background color
  */
 :where([type="search"]) {
   -webkit-appearance: textfield;
-  outline-offset: -2px;
+}
+
+/* iOS only */
+@supports (-webkit-touch-callout: none) {
+  :where([type="search"]) {
+    border: 1px solid -apple-system-secondary-label;
+    background-color: canvas;
+  }
 }
 
 /**
