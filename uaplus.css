@@ -1,6 +1,6 @@
 /**
-* uaplus.css version 0.0.1
-*/
+ * uaplus.css version 0.0.1
+ */
 
 /**
  * Different box model
@@ -16,7 +16,7 @@
 *,
 *::after,
 *::before {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /**
@@ -25,7 +25,7 @@
  * Add spacing between content and its focus outline.
  */
 :focus-visible {
-	outline-offset: 3px;
+  outline-offset: 3px;
 }
 
 /**
@@ -39,8 +39,8 @@
  * See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
  */
 :where(html) {
-	-webkit-text-size-adjust: none;
-	text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 /**
@@ -49,7 +49,7 @@
  * Long paragraphs are easier to read if the line height is higher.
  */
 :where(html) {
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 /**
@@ -59,7 +59,7 @@
  *
  */
 :where(html) {
-	scrollbar-gutter: stable;
+  scrollbar-gutter: stable;
 }
 
 /**
@@ -74,8 +74,8 @@
  * See https://html.spec.whatwg.org/#sections-and-headings
  */
 :where(h1) {
-	font-size: 2em;
-	margin-block: 0.67em;
+  font-size: 2em;
+  margin-block: 0.67em;
 }
 
 /**
@@ -90,9 +90,9 @@
  * See https://adrianroselli.com/2024/01/using-abbr-element-with-title-attribute.html
  */
 :where(abbr[title]) {
-	cursor: help;
-	text-decoration-line: underline;
-	text-decoration-style: dotted;
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
 }
 
 /**
@@ -104,10 +104,10 @@
  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
  */
 @media (forced-colors: active) {
-	mark {
-		color: HighlightText;
-		background-color: Highlight;
-	}
+  mark {
+    color: HighlightText;
+    background-color: Highlight;
+  }
 }
 
 /**
@@ -127,37 +127,37 @@
  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html
  */
 :where(del::before, del::after, ins::before, ins::after, s::before, s::after) {
-	clip-path: inset(100%);
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
 }
 
 :where(s::before) {
-	content: "stricken text start ";
+  content: "stricken text start ";
 }
 
 :where(s::after) {
-	content: " stricken text end";
+  content: " stricken text end";
 }
 
 :where(del::before) {
-	content: "deletion start ";
+  content: "deletion start ";
 }
 
 :where(del::after) {
-	content: " deletion end";
+  content: " deletion end";
 }
 
 :where(ins::before) {
-	content: "insertion start ";
+  content: "insertion start ";
 }
 
 :where(ins::after) {
-	content: " insertion end";
+  content: " insertion end";
 }
 
 /**
@@ -167,8 +167,8 @@
  * doesn't overflow its container.
  */
 :where(audio, iframe, img, svg, video) {
-	max-block-size: 100%;
-	max-inline-size: 100%;
+  max-block-size: 100%;
+  max-inline-size: 100%;
 }
 
 /**
@@ -181,7 +181,7 @@
  * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
  */
 :where(fieldset) {
-	min-inline-size: 0;
+  min-inline-size: 0;
 }
 
 /**
@@ -191,7 +191,7 @@
  * elements.
  */
 :where(label):has(+ :where(textarea, input, select)) {
-	display: block;
+  display: block;
 }
 
 /**
@@ -200,7 +200,7 @@
  * The default height of textareas is small. We increase it a bit.
  */
 :where(textarea:not([rows])) {
-	min-block-size: 6em;
+  min-block-size: 6em;
 }
 
 /**
@@ -210,19 +210,26 @@
  * family and size as the rest of the page.
  */
 :where(button, input, select, textarea) {
-	font-family: inherit;
-	font-size: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 /**
  * Normalize search input styles
  *  
  * Remove the rounded corners of search inputs on macOS and IOS 
- * and align the outline-offset with other input types
+ * and normalize the background color
  */
 :where([type="search"]) {
-	-webkit-appearance: textfield;
-	outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+/* iOS only */
+@supports (-webkit-touch-callout: none) {
+  :where([type="search"]) {
+    border: 1px solid -apple-system-secondary-label;
+    background-color: canvas;
+  }
 }
 
 /**
@@ -235,9 +242,9 @@
  * See https://rtlstyling.com/posts/rtl-styling#form-inputs
  */
 :where([type="tel"], [type="url"], [type="email"], [type="number"]):not(
-		:placeholder-shown
-	) {
-	direction: ltr;
+    :placeholder-shown
+  ) {
+  direction: ltr;
 }
 
 /**
@@ -247,13 +254,13 @@
  * add padding and collapsed borders.
  */
 :where(table) {
-	border-collapse: collapse;
-	border: 1px solid;
+  border-collapse: collapse;
+  border: 1px solid;
 }
 
 :where(th, td) {
-	border: 1px solid;
-	padding: 0.25em 0.5em;
+  border: 1px solid;
+  padding: 0.25em 0.5em;
 }
 
 /**
@@ -263,26 +270,26 @@
  * and backdrops
  */
 :where(dialog)::backdrop {
-	background: oklch(0% 0 0 / 0.3);
+  background: oklch(0% 0 0 / 0.3);
 }
 
 :where(dialog),
 :where(dialog)::backdrop {
-	opacity: 0;
-	transition: opacity 300ms ease-out, display 300ms allow-discrete,
-		overlay 300ms allow-discrete;
+  opacity: 0;
+  transition: opacity 300ms ease-out, display 300ms allow-discrete,
+    overlay 300ms allow-discrete;
 }
 
 :where(dialog[open]),
 :where(dialog[open])::backdrop {
-	opacity: 1;
+  opacity: 1;
 }
 
 @starting-style {
-	:where(dialog[open]),
-	:where(dialog[open])::backdrop {
-		opacity: 0;
-	}
+  :where(dialog[open]),
+  :where(dialog[open])::backdrop {
+    opacity: 0;
+  }
 }
 
 /**
@@ -293,5 +300,5 @@
  * functionality.
  */
 [hidden]:not([hidden="until-found"]) {
-	display: none !important;
+  display: none !important;
 }
