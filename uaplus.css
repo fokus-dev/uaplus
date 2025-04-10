@@ -126,39 +126,42 @@
  * 
  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html
  */
-:where(del::before, del::after, ins::before, ins::after, s::before, s::after) {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-}
-
-:where(s::before) {
-  content: "stricken text start ";
-}
-
-:where(s::after) {
-  content: " stricken text end";
-}
-
-:where(del::before) {
-  content: "deletion start ";
-}
-
-:where(del::after) {
-  content: " deletion end";
-}
-
-:where(ins::before) {
-  content: "insertion start ";
-}
-
-:where(ins::after) {
-  content: " insertion end";
-}
+ :where(del, ins, s)::before, 
+ :where(del, ins, s)::after 
+ {
+   clip-path: inset(100%);
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   content: "test"
+ }
+ 
+ :where(s)::before {
+   content: "stricken text start ";
+ }
+ 
+ :where(s)::after {
+   content: " stricken text end";
+ }
+ 
+ :where(del)::before {
+   content: "deletion start ";
+ }
+ 
+ :where(del)::after {
+   content: " deletion end";
+ }
+ 
+ :where(ins)::before {
+   content: "insertion start ";
+  }
+ 
+ :where(ins)::after {
+   content: " insertion end";
+ }
 
 /**
  * Avoid overflow caused by embedded content
