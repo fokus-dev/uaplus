@@ -280,8 +280,8 @@
 :where(dialog),
 :where(dialog)::backdrop {
   opacity: 0;
-  transition: opacity 300ms ease-out, display 300ms allow-discrete,
-    overlay 300ms allow-discrete;
+  transition: opacity 150ms ease-out, display 150ms allow-discrete,
+   overlay 150ms allow-discrete;
 }
 
 :where(dialog[open]),
