@@ -314,3 +314,13 @@
 :where(img) {
   display: block;
 }
+
+/**
+ * Change cursor of <summary>
+ *
+ * By default, only the ::marker inside the summary uses the 
+ * default cursor.
+ */
+:where(summary) {
+  cursor: default;
+}
