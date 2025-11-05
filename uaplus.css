@@ -277,20 +277,20 @@
   background: oklch(0% 0 0 / 0.3);
 }
 
-:where(dialog),
+:where(dialog, [popover]),
 :where(dialog)::backdrop {
   opacity: 0;
   transition: opacity 150ms ease-out, display 150ms allow-discrete,
    overlay 150ms allow-discrete;
 }
 
-:where(dialog[open]),
+:where(dialog[open], :popover-open),
 :where(dialog[open])::backdrop {
   opacity: 1;
 }
 
 @starting-style {
-  :where(dialog[open]),
+  :where(dialog[open], :popover-open),
   :where(dialog[open])::backdrop {
     opacity: 0;
   }
