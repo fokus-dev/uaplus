@@ -264,6 +264,7 @@
 :where(th, td) {
   border: 1px solid;
   padding: 0.25em 0.5em;
+  vertical-align: top;
 }
 
 /**
