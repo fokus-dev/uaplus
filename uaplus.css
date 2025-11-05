@@ -24,7 +24,7 @@
  *
  * Add spacing between content and its focus outline.
  */
-:focus-visible {
+:where(:focus-visible) {
   outline-offset: 3px;
 }
 
@@ -104,7 +104,7 @@
  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
  */
 @media (forced-colors: active) {
-  mark {
+  :where(mark) {
     color: HighlightText;
     background-color: Highlight;
   }
