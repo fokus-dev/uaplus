@@ -306,3 +306,11 @@
 [hidden]:not([hidden="until-found"]) {
   display: none !important;
 }
+
+/**
+ * Turn images into block elements
+ */
+
+:where(img) {
+  display: block;
+}
