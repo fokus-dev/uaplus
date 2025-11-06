@@ -111,59 +111,6 @@
 }
 
 /**
- * Announce del, ins, and s to screen readers
- * 
- * With the exception of NVDA (2024.4.2), which announces "deletion",
- * none of the common screen readers announces the <s> element.
- * Voice Over on macOS and iOS and Narrator don't announce 
- * <ins> and <del>. Usually, screen readers not announcing text-level
- * semantics is something we just accept, but devs using elements 
- * like <s> without knowing that they may not convey semantics is a 
- * common issue. We announce the start and end of stricken, inserted,
- * and deleted content with pseudo-elements. For languages other 
- * than English, you should provide translations, e.g. :lang(de) 
- * :where(s::before) { content: "Durchgestrichener Text Beginn "; }
- * 
- * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html
- */
- :where(del, ins, s)::before, 
- :where(del, ins, s)::after 
- {
-   clip-path: inset(100%);
-   clip: rect(1px, 1px, 1px, 1px);
-   height: 1px;
-   width: 1px;
-   overflow: hidden;
-   position: absolute;
-   white-space: nowrap;
-   content: "test"
- }
- 
- :where(s)::before {
-   content: "stricken text start ";
- }
- 
- :where(s)::after {
-   content: " stricken text end";
- }
- 
- :where(del)::before {
-   content: "deletion start ";
- }
- 
- :where(del)::after {
-   content: " deletion end";
- }
- 
- :where(ins)::before {
-   content: "insertion start ";
-  }
- 
- :where(ins)::after {
-   content: " insertion end";
- }
-
-/**
  * Avoid overflow caused by embedded content
  * 
  * Ensure that embedded content (audio, video, images, etc.) 
