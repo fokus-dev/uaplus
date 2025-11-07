@@ -271,3 +271,10 @@
 :where(summary) {
   cursor: default;
 }
+
+/**
+ * Remove the default border from iframes
+ */
+:where(iframe) {
+  border: none;
+}
