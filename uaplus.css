@@ -195,6 +195,9 @@
     :placeholder-shown
   ) {
   direction: ltr;
+
+  /* Align start or left depending on the parent's directionality. */
+  text-align: match-parent;
 }
 
 /**
