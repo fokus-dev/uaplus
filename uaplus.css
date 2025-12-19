@@ -9,16 +9,16 @@
  */
 @layer {
 	/**
-  * Different box model
-  * 
-  * We use the traditional box model, where the padding and border 
-  * of the element is drawn inside and not outside the specified 
-  * width and height. That makes combining relative and absolute 
-  * units in properties like <code>inline-size</code> and 
-  * <code>block-size</code> easier.
-  * 
-  * See https://en.wikipedia.org/wiki/CSS_box_model
-  */
+   * Different box model
+   * 
+   * We use the traditional box model, where the padding and border 
+   * of the element is drawn inside and not outside the specified 
+   * width and height. That makes combining relative and absolute 
+   * units in properties like <code>inline-size</code> and 
+   * <code>block-size</code> easier.
+   * 
+   * See https://en.wikipedia.org/wiki/CSS_box_model
+   */
 	*,
 	*::after,
 	*::before {
@@ -26,75 +26,75 @@
 	}
 
 	/**
-  * Improve focus styles
-  *
-  * Add spacing between content and its focus outline.
-  */
+   * Improve focus styles
+   *
+   * Add spacing between content and its focus outline.
+   */
 	:focus-visible {
 		outline-offset: 3px;
 	}
 
 	/**
-  * Disable text size adjustment
-  * 
-  * To improve readability on non-mobile optimized websites, browsers
-  * like mobile Safari increase the default font size when you switch
-  * a website from portrait to landscape. We don't want that for our 
-  * optimized sites.
-  *
-  * See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
-  */
+   * Disable text size adjustment
+   * 
+   * To improve readability on non-mobile optimized websites, browsers
+   * like mobile Safari increase the default font size when you switch
+   * a website from portrait to landscape. We don't want that for our 
+   * optimized sites.
+   *
+   * See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+   */
 	html {
 		-webkit-text-size-adjust: none;
 		text-size-adjust: none;
 	}
 
 	/**
-  * Increase line height
-  *
-  * Long paragraphs are easier to read if the line height is higher.
-  */
+   * Increase line height
+   *
+   * Long paragraphs are easier to read if the line height is higher.
+   */
 	html {
 		line-height: 1.5;
 	}
 
 	/**
-  * Add scrollbar gutter
-  *
-  * Prevent the page from “jumping” when switching from a long to a short page.
-  *
-  */
+   * Add scrollbar gutter
+   *
+   * Prevent the page from “jumping” when switching from a long to a short page.
+   *
+   */
 	html {
 		scrollbar-gutter: stable;
 	}
 
 	/**
-  * Remove UA styles for h1s nested in sectioning content
-  *
-  * Nesting h1s in section, articles, etc., shouldn't influence the 
-  * styling of the heading since nesting doesn't influence 
-  * semantics either.
-  * 
-  * See https://github.com/whatwg/html/issues/7867#issuecomment-2632395167
-  * See https://github.com/whatwg/html/pull/11102
-  * See https://html.spec.whatwg.org/#sections-and-headings
-  */
+   * Remove UA styles for h1s nested in sectioning content
+   *
+   * Nesting h1s in section, articles, etc., shouldn't influence the 
+   * styling of the heading since nesting doesn't influence 
+   * semantics either.
+   * 
+   * See https://github.com/whatwg/html/issues/7867#issuecomment-2632395167
+   * See https://github.com/whatwg/html/pull/11102
+   * See https://html.spec.whatwg.org/#sections-and-headings
+   */
 	h1 {
 		font-size: 2em;
 		margin-block: 0.67em;
 	}
 
 	/**
-  * Improve abbreviations with titles
-  * 
-  * The abbr element with the title isn't helpful regarding 
-  * accessibility because support is inconsistent, and it's only 
-  * accessible to some users. Still, it's commonly used. 
-  * This rule shows a dotted underline on abbreviations in all 
-  * browsers (there's a bug in Safari) and changes the cursor.
-  * 
-  * See https://adrianroselli.com/2024/01/using-abbr-element-with-title-attribute.html
-  */
+   * Improve abbreviations with titles
+   * 
+   * The abbr element with the title isn't helpful regarding 
+   * accessibility because support is inconsistent, and it's only 
+   * accessible to some users. Still, it's commonly used. 
+   * This rule shows a dotted underline on abbreviations in all 
+   * browsers (there's a bug in Safari) and changes the cursor.
+   * 
+   * See https://adrianroselli.com/2024/01/using-abbr-element-with-title-attribute.html
+   */
 	abbr[title] {
 		cursor: help;
 		text-decoration-line: underline;
@@ -102,13 +102,13 @@
 	}
 
 	/**
-  * Optimize mark element in Forced Colors Mode
-  *
-  * The colors of the mark element don't change in Forced Colors Mode,
-  * which can be problematic. Use system colors instead.
-  * 
-  * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
-  */
+   * Optimize mark element in Forced Colors Mode
+   *
+   * The colors of the mark element don't change in Forced Colors Mode,
+   * which can be problematic. Use system colors instead.
+   * 
+   * See https://adrianroselli.com/2017/12/tweaking-text-level-styles.html#MarkWHCM
+   */
 	@media (forced-colors: active) {
 		mark {
 			color: HighlightText;
@@ -117,11 +117,11 @@
 	}
 
 	/**
-  * Avoid overflow caused by embedded content
-  * 
-  * Ensure that embedded content (audio, video, images, etc.) 
-  * doesn't overflow its container.
-  */
+   * Avoid overflow caused by embedded content
+   * 
+   * Ensure that embedded content (audio, video, images, etc.) 
+   * doesn't overflow its container.
+   */
 	audio,
 	iframe,
 	img,
@@ -132,43 +132,43 @@
 	}
 
 	/**
-  * Prevent fieldsets from causing overflow
-  *
-  * Reset the default `min-inline-size: min-content` to prevent
-  * children from stretching fieldsets
-  *
-  * See https://github.com/twbs/bootstrap/issues/12359
-  * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
-  */
+   * Prevent fieldsets from causing overflow
+   *
+   * Reset the default `min-inline-size: min-content` to prevent
+   * children from stretching fieldsets
+   *
+   * See https://github.com/twbs/bootstrap/issues/12359
+   * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+   */
 	fieldset {
 		min-inline-size: 0;
 	}
 
 	/**
-  * Turn labels into block elements
-  * 
-  * Labels for inputs, selects, and textarea should be block 
-  * elements.
-  */
+   * Turn labels into block elements
+   * 
+   * Labels for inputs, selects, and textarea should be block 
+   * elements.
+   */
 	label:has(+ input:not([type="radio"], [type="checkbox"]), select, textarea) {
 		display: block;
 	}
 
 	/**
-  * Increase the block-size of textareas
-  *
-  * The default height of textareas is small. We increase it a bit.
-  */
+   * Increase the block-size of textareas
+   *
+   * The default height of textareas is small. We increase it a bit.
+   */
 	textarea:not([rows]) {
 		min-block-size: 6em;
 	}
 
 	/**
-  * Inherit font styling in form elements
-  * 
-  * buttons, inputs, selects, and textarea should have the same font
-  * family and size as the rest of the page.
-  */
+   * Inherit font styling in form elements
+   * 
+   * buttons, inputs, selects, and textarea should have the same font
+   * family and size as the rest of the page.
+   */
 	button,
 	input,
 	select,
@@ -178,11 +178,11 @@
 	}
 
 	/**
-  * Normalize search input styles
-  *  
-  * Remove the rounded corners of search inputs on macOS and IOS 
-  * and normalize the background color
-  */
+   * Normalize search input styles
+   *  
+   * Remove the rounded corners of search inputs on macOS and IOS 
+   * and normalize the background color
+   */
 	[type="search"] {
 		-webkit-appearance: textfield;
 	}
@@ -196,14 +196,14 @@
 	}
 
 	/**
-  * Maintain direction in some input types
-  * 
-  * Some input types should remain left-aligned in right-to-left
-  * languages,but only if the value isn't empty because the 
-  * placeholder should be right-aligned.
-  *
-  * See https://rtlstyling.com/posts/rtl-styling#form-inputs
-  */
+   * Maintain direction in some input types
+   * 
+   * Some input types should remain left-aligned in right-to-left
+   * languages,but only if the value isn't empty because the 
+   * placeholder should be right-aligned.
+   *
+   * See https://rtlstyling.com/posts/rtl-styling#form-inputs
+   */
 	input [type="tel"],
 	[type="url"],
 	[type="email"],
@@ -212,11 +212,11 @@
 	}
 
 	/**
-  * Improve table styling
-  *  
-  * With the default styling, tables are hard to scan. These rules 
-  * add padding and collapsed borders.
-  */
+   * Improve table styling
+   *  
+   * With the default styling, tables are hard to scan. These rules 
+   * add padding and collapsed borders.
+   */
 	table {
 		border-collapse: collapse;
 		border: 1px solid;
@@ -230,11 +230,11 @@
 	}
 
 	/**
-  * Fading dialogs
-  *  
-  * Add fade in and fade out transitions for the dialog element
-  * and backdrops
-  */
+   * Fading dialogs
+   *  
+   * Add fade in and fade out transitions for the dialog element
+   * and backdrops
+   */
 	:dialog::backdrop {
 		background: oklch(0% 0 0 / 0.3);
 	}
@@ -262,36 +262,36 @@
 	}
 
 	/**
-  * Increase specificity of [hidden]
-  *  
-  * Make it harder to accidentally unhide elements with the 
-  * [hidden] attribute while still maintaining the until-found 
-  * functionality.
-  */
+   * Increase specificity of [hidden]
+   *  
+   * Make it harder to accidentally unhide elements with the 
+   * [hidden] attribute while still maintaining the until-found 
+   * functionality.
+   */
 	[hidden]:not([hidden="until-found"]) {
 		display: none !important;
 	}
 
 	/**
-  * Turn images into block elements
-  */
+   * Turn images into block elements
+   */
 	img {
 		display: block;
 	}
 
 	/**
-  * Change cursor of <summary>
-  *
-  * By default, only the ::marker inside the summary uses the 
-  * default cursor.
-  */
+   * Change cursor of <summary>
+   *
+   * By default, only the ::marker inside the summary uses the 
+   * default cursor.
+   */
 	summary {
 		cursor: default;
 	}
 
 	/**
-    * Remove the default border from iframes
-    */
+   * Remove the default border from iframes
+   */
 	iframe {
 		border: none;
 	}
