@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tests</title>
+  
+  <link rel="stylesheet" href="uaplus.css">
+</head>
+<body>
+  <h1>Tests</h1>
+
+  <section>
+    <h1>Heading</h1>
+    <section>
+      <h1>Heading</h1>
+      <section>
+        <h1>Heading</h1>
+      </section>
+    </section>
+  </section>
+
+  <h2>del, ins, s</h2>
+
+  <p>
+    The nose flute is the <del>mots</del> <ins>most</ins> beautiful instrument in the world.
+  </p>
+
+  <p>
+    <s>€ 19.99</s> € 9.99
+  </p>
+
+  <h2>tables</h2>
+
+  <table>
+    <tr>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th>Q4</th>
+    </tr>
+    <tr>
+      <td>100<br>20</td>
+      <td>40</td>
+      <td>30</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>10</td>
+      <td>8</td>
+      <td>100</td>
+    </tr>
+  </table>
+
+  <h2>labels</h2>
+
+  <label for="name">name</label>
+  <input type="text" id="name">
+
+  <label for="option">name</label>
+  <input type="radio" id="option">
+
+  <label for="option2">name</label>
+  <input type="radio" id="option2">
+
+  <h2>dialogs</h2>
+
+  <button commandfor="my-modal1" command="show-modal">
+  Show modal
+  </button>
+
+  <dialog id="my-modal1" closedby="any">
+  <button command="close" commandfor="my-modal1">close</button>
+
+  <h1>My modal</h1>
+  </dialog>
+
+  <h2>popovers</h2>
+
+  <button popovertarget="mypopover">Toggle the popover</button>
+  <div id="mypopover" popover>Popover content</div>
+
+  <h2>rtl input fields</h2>
+
+  <p>
+    <label for="tel">Tel (ltr)</label>
+    <input type="tel" placeholder="86754309" id="tel">
+  </p>
+  <p>
+    <label for="tel2">Tel with value (ltr)</label>
+    <input type="tel" value="test" placeholder="86754309" id="tel2">
+  </p>
+
+  <p>
+    <label for="tel-rtl">Tel (rtl)</label>
+    <input type="tel" dir="rtl" placeholder="86754309" id="tel-rtl">
+  </p>
+  <p>
+    <label for="tel-rtl2">Tel with value (rtl)</label>
+    <input type="tel" value="test" dir="rtl" placeholder="86754309" id="tel-rtl2">
+  </p>
+  
+</body>
+</html>
