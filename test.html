@@ -11,6 +11,24 @@
 <body>
   <h1>Tests</h1>
 
+  <h2>Box Sizing</h2>
+
+  <div style="width: 100%; border: 10px solid;">A</div>
+
+  <h2>Focus</h2>
+
+  <button>A Button</button>
+
+  <p>Lorem ipsum dolor sit amet <a href="#">consectetur</a> adipisicing elit. Velit deserunt fugit voluptatem quia eveniet voluptatum voluptates quos dolores cum! Consectetur quis cupiditate quidem ea delectus! Tempore magnam dolor pariatur distinctio.</p>
+
+  <h2>Text</h2>
+  
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam optio reprehenderit magnam voluptatem modi, quisquam tenetur aspernatur harum, neque, repellendus perspiciatis? Voluptates totam praesentium autem ducimus pariatur, eligendi cupiditate quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim voluptatum excepturi deserunt facere accusamus sunt aliquam? Ducimus doloribus obcaecati veritatis accusantium odio fugit dolor dolores harum optio. Amet, distinctio eum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ratione quo labore, itaque repudiandae, explicabo quia iure debitis tempore libero cupiditate adipisci accusantium fugiat unde. Quam at asperiores repellendus vero.  
+  </p>
+
+  <h2>Headings</h2>
+
   <section>
     <h1>Heading</h1>
     <section>
@@ -21,15 +39,82 @@
     </section>
   </section>
 
-  <h2>del, ins, s</h2>
+  <h2>Abbreviation</h2>
 
   <p>
-    The nose flute is the <del>mots</del> <ins>most</ins> beautiful instrument in the world.
+    <abbr title="Hypertext Markup Language">HTML</abbr>
+  </p>
+
+  <h2>Image</h2>
+
+  <img src="image.jpg" alt="">
+
+  <h2>iframe</h2>
+
+  <iframe width="2200" height="650" src="https://www.youtube.com/embed/TA5lHC8kAyk?si=Yo1IVg_ykcOQxw2r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <h2>fieldset</h2>
+
+  <fieldset>
+    <legend>
+      My test
+    </legend>
+
+    <!-- <button style="width: 2000px">Send</button> -->
+  </fieldset>
+
+  <h2>labels</h2>
+
+  <p>
+    <label for="name">name</label>
+    <input type="text" id="name">
+  </p>
+  <p>
+    <label for="option">name</label>
+    <input type="radio" id="option">
+  </p>
+  <p>
+    <input type="radio" id="option2">
+    <label for="option2">name</label>
+  </p>
+
+  <h2>labels</h2>
+
+  <textarea name="" id=""></textarea>
+
+  <h2>search</h2>
+
+  <input type="search">
+
+  <h2>text in form fields</h2>
+
+  <button>Heyo</button>
+  <input type="text" value="This is a test">
+  <select name="" id="">
+    <option value="">text</option>
+  </select>
+
+
+  <h2>rtl input fields</h2>
+
+  <p>
+    <label for="tel">Tel (ltr)</label>
+    <input type="tel" placeholder="86754309" id="tel">
+  </p>
+  <p>
+    <label for="tel2">Tel with value (ltr)</label>
+    <input type="tel" value="test" placeholder="86754309" id="tel2">
   </p>
 
   <p>
-    <s>€ 19.99</s> € 9.99
+    <label for="tel-rtl">Tel (rtl)</label>
+    <input type="tel" dir="rtl" placeholder="86754309" id="tel-rtl">
   </p>
+  <p>
+    <label for="tel-rtl2">Tel with value (rtl)</label>
+    <input type="tel" value="test" dir="rtl" placeholder="86754309" id="tel-rtl2">
+  </p> 
+
 
   <h2>tables</h2>
 
@@ -54,16 +139,6 @@
     </tr>
   </table>
 
-  <h2>labels</h2>
-
-  <label for="name">name</label>
-  <input type="text" id="name">
-
-  <label for="option">name</label>
-  <input type="radio" id="option">
-
-  <label for="option2">name</label>
-  <input type="radio" id="option2">
 
   <h2>dialogs</h2>
 
@@ -72,9 +147,9 @@
   </button>
 
   <dialog id="my-modal1" closedby="any">
-  <button command="close" commandfor="my-modal1">close</button>
+    <button command="close" commandfor="my-modal1">close</button>
 
-  <h1>My modal</h1>
+    <h1>My modal</h1>
   </dialog>
 
   <h2>popovers</h2>
@@ -82,25 +157,16 @@
   <button popovertarget="mypopover">Toggle the popover</button>
   <div id="mypopover" popover>Popover content</div>
 
-  <h2>rtl input fields</h2>
+  <h2>hidden</h2>
 
-  <p>
-    <label for="tel">Tel (ltr)</label>
-    <input type="tel" placeholder="86754309" id="tel">
-  </p>
-  <p>
-    <label for="tel2">Tel with value (ltr)</label>
-    <input type="tel" value="test" placeholder="86754309" id="tel2">
-  </p>
+  <div hidden style="display: block">Hidden</div>
 
-  <p>
-    <label for="tel-rtl">Tel (rtl)</label>
-    <input type="tel" dir="rtl" placeholder="86754309" id="tel-rtl">
-  </p>
-  <p>
-    <label for="tel-rtl2">Tel with value (rtl)</label>
-    <input type="tel" value="test" dir="rtl" placeholder="86754309" id="tel-rtl2">
-  </p>
-  
+  <h2>summary</h2>
+
+  <details>
+    <summary>More info</summary>
+    <p>This is the hidden info</p>
+  </details>
+
 </body>
 </html>
