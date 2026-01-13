@@ -204,10 +204,7 @@
    *
    * See https://rtlstyling.com/posts/rtl-styling#form-inputs
    */
-	input [type="tel"],
-	[type="url"],
-	[type="email"],
-	[type="number"]:not(:placeholder-shown) {
+	input:where([type="tel"], [type="url"], [type="email"], [type="number"]):not(:placeholder-shown) {
 		direction: ltr;
 	}
 
@@ -235,28 +232,28 @@
    * Add fade in and fade out transitions for the dialog element
    * and backdrops
    */
-	:dialog::backdrop {
+	dialog::backdrop {
 		background: oklch(0% 0 0 / 0.3);
 	}
 
-	:dialog,
+	dialog,
 	[popover],
-	:dialog::backdrop {
+	dialog::backdrop {
 		opacity: 0;
 		transition: opacity 150ms ease-out, display 150ms allow-discrete,
 			overlay 150ms allow-discrete;
 	}
 
-	:dialog[open],
+	dialog[open],
 	:popover-open,
-	:dialog[open]::backdrop {
+	dialog[open]::backdrop {
 		opacity: 1;
 	}
 
 	@starting-style {
-		:dialog[open],
+		dialog[open],
 		:popover-open,
-		:dialog[open]::backdrop {
+		dialog[open]::backdrop {
 			opacity: 0;
 		}
 	}
