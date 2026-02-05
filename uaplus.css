@@ -303,6 +303,7 @@
     [popover] {
       margin: 0;
       position-area: end span-end;
+      position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
     }
   }
 }
