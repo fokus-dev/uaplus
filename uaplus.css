@@ -299,10 +299,10 @@
    * This makes use of the implicit anchor in popvers to position
    * it closely to the trigger.
    */
-  @supports(position-area: block-end span-inline-end) {
+  @supports(position-area: end) {
     [popover] {
       margin: 0;
-      position-area: block-end span-inline-end;
+      position-area: end span-end;
     }
   }
 }
