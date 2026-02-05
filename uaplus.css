@@ -150,7 +150,7 @@
    * Labels for inputs, selects, and textarea should be block 
    * elements.
    */
-	label:has(+ input:not([type="radio"], [type="checkbox"]), select, textarea) {
+	label:has(+ :where(input:not([type="radio"], [type="checkbox"]), select, textarea)) {
 		display: block;
 	}
 
