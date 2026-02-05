@@ -1,0 +1,20 @@
+{
+  "name": "uaplus",
+  "version": "0.3.0",
+  "description": "User agent styles improvements",
+  "keywords": [
+    "css"
+  ],
+  "homepage": "https://github.com/fokus-dev/uaplus#readme",
+  "bugs": {
+    "url": "https://github.com/fokus-dev/uaplus/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fokus-dev/uaplus.git"
+  },
+  "license": "ISC",
+  "author": "Manuel Matuzovic",
+  "type": "commonjs",
+  "main": "index.js"
+}
