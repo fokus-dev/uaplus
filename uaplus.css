@@ -252,6 +252,16 @@
 		vertical-align: top;
 	}
 
+  /**
+   * Dialogs
+   *  
+   * Make the backdrop in modal dialogs a bit darker.
+   */
+
+  dialog::backdrop {
+		background: oklch(0% 0 0 / 0.5);
+	}
+
 	/**
    * Fading dialogs
    *  
