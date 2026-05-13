@@ -237,12 +237,14 @@
 	/**
    * Improve table styling
    *  
-   * With the default styling, tables are hard to scan. These rules 
+   * 1. With the default styling, tables are hard to scan. These rules 
    * add padding and collapsed borders.
+   * 2. Keep numbers aligned and consistent in tables, making data easier to read.
    */
 	table {
-		border-collapse: collapse;
-		border: 1px solid;
+		border-collapse: collapse; /* 1 */
+		border: 1px solid; /* 1 */
+    font-variant-numeric: tabular-nums lining-nums slashed-zero; /* 2 */
 	}
 
 	th,
