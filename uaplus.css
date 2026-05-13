@@ -68,6 +68,18 @@
 		scrollbar-gutter: stable;
 	}
 
+   /**
+   * Disable subpixel antialiasing on macOS
+   * 
+   * Text in browsers on macOS is rendered thicker than on other operating systems.
+   * With this rule fonts are rendered closer in weight to other operating systems.
+   * 
+   * See https://dbushell.com/2024/11/05/webkit-font-smoothing/
+   */
+   body {
+      -webkit-font-smoothing: antialiased;
+   }
+
 	/**
    * Remove UA styles for h1s nested in sectioning content
    *
