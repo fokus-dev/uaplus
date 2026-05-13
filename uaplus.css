@@ -268,23 +268,35 @@
    * Add fade in and fade out transitions for the dialog element
    * and backdrops
    */
-	dialog::backdrop {
-		background: oklch(0% 0 0 / 0.3);
-	}
+
+   /* Transition property for dialogs */
+  dialog {
+    --_dialog-transition-speed: 150ms;
+    --_dialog-transition: var(--_dialog-transition-speed);
+  }
+
+   /* Set it 0 for Safari when fading out because of a bug that occurs when you transition display */
+  dialog:not(:modal) {
+    --_dialog-transition: 0;
+  }
+
+  /* Reset the pervious change for Chromium browsers */
+  dialog:-internal-dialog-in-top-layer {
+  --_dialog-transition: var(--_dialog-transition-speed);
+  }
 
 	dialog,
 	[popover],
 	dialog::backdrop {
 		opacity: 0;
-		transition: opacity 150ms ease-out, display 150ms allow-discrete,
-			overlay 150ms allow-discrete;
+		transition: opacity var(--_dialog-transition) ease-out, display var(--_dialog-transition) allow-discrete,
+			overlay var(--_dialog-transition) allow-discrete;
 	}
-
 	dialog[open],
 	:popover-open,
 	dialog[open]::backdrop {
 		opacity: 1;
-	}
+	} 
 
 	@starting-style {
 		dialog[open],
