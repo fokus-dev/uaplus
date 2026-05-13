@@ -196,6 +196,13 @@
 		font-size: inherit;
 	}
 
+  /**
+   * Use “not-allowed” cursor for all disabled elements
+   */
+  :disabled {
+    cursor: not-allowed;
+  }
+
 	/**
    * Normalize search input styles
    *  
