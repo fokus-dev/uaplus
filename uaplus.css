@@ -7,7 +7,7 @@
  * in UA+ have the lowest specificty or the highest when using
  * !important.
  */
-@layer {
+@layer uaplus-reset-styles {
 	/**
    * Different box model
    * 
