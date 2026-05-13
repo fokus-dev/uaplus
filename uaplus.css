@@ -7,7 +7,7 @@
  * in UA+ have the lowest specificty or the highest when using
  * !important.
  */
-@layer {
+@layer uaplus-reset-styles {
 	/**
    * Different box model
    * 
@@ -68,6 +68,18 @@
 		scrollbar-gutter: stable;
 	}
 
+   /**
+   * Disable subpixel antialiasing on macOS
+   * 
+   * Text in browsers on macOS is rendered thicker than on other operating systems.
+   * With this rule fonts are rendered closer in weight to other operating systems.
+   * 
+   * See https://dbushell.com/2024/11/05/webkit-font-smoothing/
+   */
+   body {
+      -webkit-font-smoothing: antialiased;
+   }
+
 	/**
    * Remove UA styles for h1s nested in sectioning content
    *
@@ -83,6 +95,13 @@
 		font-size: 2em;
 		margin-block: 0.67em;
 	}
+
+  /**
+   * Smaller default line heights for headings
+   */
+   h1, h2, h3 {
+      line-height: 1.2;
+   }
 
 	/**
    * Improve abbreviations with titles
@@ -177,6 +196,13 @@
 		font-size: inherit;
 	}
 
+  /**
+   * Use “not-allowed” cursor for all disabled elements
+   */
+  :disabled {
+    cursor: not-allowed;
+  }
+
 	/**
    * Normalize search input styles
    *  
@@ -211,12 +237,14 @@
 	/**
    * Improve table styling
    *  
-   * With the default styling, tables are hard to scan. These rules 
+   * 1. With the default styling, tables are hard to scan. These rules 
    * add padding and collapsed borders.
+   * 2. Keep numbers aligned and consistent in tables, making data easier to read.
    */
 	table {
-		border-collapse: collapse;
-		border: 1px solid;
+		border-collapse: collapse; /* 1 */
+		border: 1px solid; /* 1 */
+    font-variant-numeric: tabular-nums lining-nums slashed-zero; /* 2 */
 	}
 
 	th,
@@ -226,29 +254,51 @@
 		vertical-align: top;
 	}
 
+  /**
+   * Dialogs
+   *  
+   * Make the backdrop in modal dialogs a bit darker.
+   */
+
+  dialog::backdrop {
+		background: oklch(0% 0 0 / 0.5);
+	}
+
 	/**
    * Fading dialogs
    *  
    * Add fade in and fade out transitions for the dialog element
    * and backdrops
    */
-	dialog::backdrop {
-		background: oklch(0% 0 0 / 0.3);
-	}
+
+   /* Transition property for dialogs */
+  dialog {
+    --_dialog-transition-speed: 150ms;
+    --_dialog-transition: var(--_dialog-transition-speed);
+  }
+
+   /* Set it 0 for Safari when fading out because of a bug that occurs when you transition display */
+  dialog:not(:modal) {
+    --_dialog-transition: 0;
+  }
+
+  /* Reset the pervious change for Chromium browsers */
+  dialog:-internal-dialog-in-top-layer {
+  --_dialog-transition: var(--_dialog-transition-speed);
+  }
 
 	dialog,
 	[popover],
 	dialog::backdrop {
 		opacity: 0;
-		transition: opacity 150ms ease-out, display 150ms allow-discrete,
-			overlay 150ms allow-discrete;
+		transition: opacity var(--_dialog-transition) ease-out, display var(--_dialog-transition) allow-discrete,
+			overlay var(--_dialog-transition) allow-discrete;
 	}
-
 	dialog[open],
 	:popover-open,
 	dialog[open]::backdrop {
 		opacity: 1;
-	}
+	} 
 
 	@starting-style {
 		dialog[open],
