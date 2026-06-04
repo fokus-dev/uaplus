@@ -3,7 +3,7 @@
  */
 
 /**
- * Wrapping everything in an anonymous layer ensures that selectors
+ * Wrapping everything in a cascade layer ensures that selectors
  * in UA+ have the lowest specificty or the highest when using
  * !important.
  */
